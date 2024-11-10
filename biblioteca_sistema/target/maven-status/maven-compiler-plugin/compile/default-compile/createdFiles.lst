@@ -1,0 +1,11 @@
+com\biblioteca\DatabaseConnectionTest.class
+com\biblioteca\model\Cliente.class
+com\biblioteca\controller\ClienteController.class
+com\biblioteca\BibliotecaSistemaApplication.class
+com\biblioteca\model\Livro.class
+com\biblioteca\service\LivroService.class
+com\biblioteca\model\Emprestimo.class
+com\biblioteca\controller\LivroController.class
+com\biblioteca\service\ClienteService.class
+com\biblioteca\service\EmprestimoService.class
+com\biblioteca\controller\EmprestimoController.class
