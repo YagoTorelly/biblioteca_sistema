@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="biblioteca.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2068"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="ADM" custom_title="0" dock_id="1" table="4,3:mainADM"/><dock_state state="000000ff00000000fd00000001000000020000000000000000fc0100000001fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000012400ffffff000000000000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1*">CREATE TABLE ADM (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    NOME VARCHAR(100) NOT NULL,
+    CPF CHAR(11) NOT NULL UNIQUE,
+    TELEFONE CHAR(11) NOT NULL,
+    EMAIL VARCHAR(100) NOT NULL UNIQUE,
+    SENHA VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE FUNCIONARIO (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    NOME VARCHAR(100) NOT NULL,
+    CPF CHAR(11) NOT NULL UNIQUE,
+    TELEFONE CHAR(11) NOT NULL,
+    EMAIL VARCHAR(100) NOT NULL UNIQUE,
+    SENHA VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE CLIENTE (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    NOME VARCHAR(100) NOT NULL,
+    DDN CHAR(8) NOT NULL,
+    TELEFONE CHAR(11) NOT NULL,
+    CPF INTEGER NOT NULL UNIQUE,
+    EMAIL VARCHAR(100) NOT NULL UNIQUE,
+    SENHA VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE USUARIO (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    NOME VARCHAR(100) NOT NULL,
+    DDN CHAR(8) NOT NULL,
+    TELEFONE CHAR(11) NOT NULL,
+    CPF INTEGER NOT NULL UNIQUE,
+    EMAIL VARCHAR(100) NOT NULL UNIQUE,
+    SENHA VARCHAR(255) NOT NULL,
+    CARGO VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE LIVRO (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    TITULO VARCHAR(100) NOT NULL,
+    AUTOR VARCHAR(100) NOT NULL,
+    CATEGORIA VARCHAR(100) NOT NULL,
+    QUANTIDADE INTEGER NOT NULL
+);
+
+CREATE TABLE RESERVA (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ID_CLIENTE INTEGER NOT NULL,
+    ID_LIVRO INTEGER NOT NULL,
+    DATA_RESERVA DATE NOT NULL,
+    FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTE(ID),
+    FOREIGN KEY (ID_LIVRO) REFERENCES LIVRO(ID)
+);
+
+CREATE TABLE EMPRESTIMO (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ID_CLIENTE INTEGER NOT NULL,
+    ID_LIVRO INTEGER NOT NULL,
+    DATA_EMPRESTIMO DATE NOT NULL,
+    STATUS VARCHAR(100) NOT NULL,
+    DATA_DEVOLUCAO DATE NOT NULL,
+    FOREIGN KEY (ID_CLIENTE) REFERENCES CLIENTE(ID),
+    FOREIGN KEY (ID_LIVRO) REFERENCES LIVRO(ID)
+);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
